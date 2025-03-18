@@ -7,27 +7,6 @@
 
         <div class="space-y-6">
           <div>
-            <h2 class="text-lg font-semibold mb-4">Account</h2>
-            <div class="space-y-4">
-              <div>
-                <label class="block text-sm font-medium text-neutral-700 mb-1">
-                  Email
-                </label>
-                <input type="email" v-model="settings.email"
-                  class="mt-1 block w-full rounded-lg border-neutral-300 shadow-sm focus:border-primary focus:ring-primary" />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-neutral-700 mb-1">
-                  Password
-                </label>
-                <button @click="changePassword" class="text-sm text-neutral-600 hover:text-neutral-900">
-                  Change Password
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div>
             <h2 class="text-lg font-semibold mb-4">Notifications</h2>
             <div class="space-y-4">
               <div class="flex items-center justify-between">
@@ -89,19 +68,13 @@
 
 <script setup>
 const settings = ref({
-  email: 'john@example.com',
   emailNotifications: true,
   pushNotifications: false,
   publicProfile: true
 })
 
-const changePassword = () => {
-  // Show password change modal or navigate to password change page
-  console.log('Change password clicked')
-}
-
 const logout = () => {
   // Handle logout
-  console.log('Logout clicked')
+  navigateTo('/login')
 }
 </script>
