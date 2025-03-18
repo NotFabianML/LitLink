@@ -51,7 +51,10 @@ const fetchBooks = async () => {
   try {
     loading.value = true;
     errorMessage.value = '';
-    books.value = await openLibraryService.searchBooks(userPreferences.value);
+    // books.value = await openLibraryService.searchBooks(userPreferences.value);
+
+    const { searchBooks } = useLitLinkApi()
+    books.value = await searchBooks(userPreferences.value)
   } catch (error) {
     errorMessage.value = 'Error cargando libros. Intenta nuevamente más tarde.';
     console.error('Error fetching books:', error);
