@@ -85,7 +85,6 @@ const computedTransform = computed(() => {
   return `translateX(${offsetX.value}px) rotate(${tilt}deg)`;
 });
 
-// Resto de computed properties y métodos se mantienen igual...
 const truncatedDescription = computed(() => {
   return truncateWords(props.book.description || '', 200);
 });
@@ -94,8 +93,6 @@ const toggleDetails = () => {
   isFlipped.value = !isFlipped.value;
 };
 
-// Mantener el resto del código del script sin cambios...
-// Manejo de taps en las áreas invisibles para tomar decisiones
 const handleTapLeft = () => {
   animateSwipe('left');
 };
@@ -104,7 +101,6 @@ const handleTapRight = () => {
   animateSwipe('right');
 };
 
-// Función para animar la decisión (simula un swipe) con animación suave y feedback
 const animateSwipe = (direction) => {
   if (direction === 'left') {
     actionTaken.value = 'nope';
