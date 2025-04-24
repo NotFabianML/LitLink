@@ -46,13 +46,17 @@
 </template>
 
 <script setup>
-const name = ref('')
+import { ref } from 'vue'
+import { useAuthStore } from '~/stores/auth'
+
+const auth = useAuthStore()
+const first_name = ref('')
+const last_name = ref('')
 const email = ref('')
 const password = ref('')
 
-const handleSignup = () => {
-  // Handle signup logic here
-  console.log('Signup:', { name: name.value, email: email.value, password: password.value })
-  navigateTo('/onboarding')
+const handleSignup = async () => {
+  await auth.signup({ first_name: first_name.value, last_name: last_name.value, email: email.value, password: password.value })
+  navigateTo('/login')
 }
 </script>
